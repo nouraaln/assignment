@@ -1,0 +1,188 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "topBidder",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "bid",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "auctionClose",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "topBid",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "beneficiaryAddress",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_biddingTime",
+						"type": "uint256"
+					},
+					{
+						"name": "_beneficiary",
+						"type": "address"
+					}
+				],
+				"name": "SimpleAuction",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "bidAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "topBidIncreased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "bidAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "auctionResult",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "time",
+						"type": "uint256"
+					}
+				],
+				"name": "auctionclose",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {
+				"SimpleAuction(uint256,address)": {
+					"notice": "beneficiary address `_beneficiary`."
+				},
+				"auctionClose()": {
+					"notice": "to the beneficiary."
+				},
+				"bid()": {
+					"notice": "auction was not won."
+				},
+				"withdraw()": {
+					"notice": "Withdraw a bid that was overbid."
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/auction2.sol": "SimpleAuctions"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/auction2.sol": {
+			"keccak256": "0x5ea2bfc5b15cc513731646b0bec58af32808505b47db4c02927895050059fcdc",
+			"urls": [
+				"bzzr://bab20ac945d5f0ab66db16bee659702eafb2393ea6ffd52263fbb6eaaed4d808"
+			]
+		}
+	},
+	"version": 1
+}

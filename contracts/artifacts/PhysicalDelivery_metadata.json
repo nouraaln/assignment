@@ -1,0 +1,479 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bidAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "auctionResult",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "courierEA",
+						"type": "address"
+					}
+				],
+				"name": "deliveryTaken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "courierEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyerEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "itemSN",
+						"type": "uint256"
+					}
+				],
+				"name": "failedDelivery",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyerEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "newDeliveryRequest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "courierEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					}
+				],
+				"name": "startDelivery",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "courierEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyerEA",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "itemSN",
+						"type": "uint256"
+					}
+				],
+				"name": "successfulDelivery",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bidAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "topBidIncreased",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Courier",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "itemSN",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "buyerEA",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "courierPaid",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "buyerPaid",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "busy",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_biddingTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_beneficiary",
+						"type": "address"
+					}
+				],
+				"name": "SimpleAuctions",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_buyerEA",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_itemSN",
+						"type": "uint256"
+					}
+				],
+				"name": "approveBuyer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctionClose",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctionClosed",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "beneficiaryAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "courierEA",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "buyerApproval",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "courierEA",
+						"type": "address"
+					}
+				],
+				"name": "buyerDeposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeDeposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_buyerEA",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_itemSN",
+						"type": "uint256"
+					}
+				],
+				"name": "courierEstablishDelivery",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retailStore",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "accountEA",
+						"type": "address"
+					}
+				],
+				"name": "returnDeposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "topBid",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "topBidder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"SimpleAuctions(uint256,address)": {
+					"notice": "Create an auction with `_biddingTime` seconds for bidding on behalf of the beneficiary address `_beneficiary`."
+				},
+				"auctionClosed()": {
+					"notice": "Auction ends and highest bid is sent to the beneficiary."
+				},
+				"bid()": {
+					"notice": "You may bid on the auction with the value sent along with this transaction. The value may only be refunded if the auction was not won."
+				},
+				"withdraw()": {
+					"notice": "Withdraw a bid that was overbid."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/delivery.sol": "PhysicalDelivery"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/auction2.sol": {
+			"keccak256": "0x6797e6eb1db64bf448503aed0acf7c2b93f8a0019ac813934489a4aee161af3c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0601e7c31db3f5d30da51f535d9231ba5d4ab134a1968a7eda32dda589900546",
+				"dweb:/ipfs/QmWYDYigRRRq4iR3f1Q9wbH4kX7WKeHLZpxaNsuTWDV6ES"
+			]
+		},
+		"contracts/delivery.sol": {
+			"keccak256": "0x7dd37ee04a205b63da4df9d509441478c040f2f587edee784a121b677adf7e67",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://452e8a03d342e8fb0524aa50eb898e6e5b9c7cb5b62de59638f7227667566bc9",
+				"dweb:/ipfs/QmRY4D6AWP8gBA4gKW4iLRDeGywF5aN5rCDFqfqP6WiiGy"
+			]
+		}
+	},
+	"version": 1
+}
